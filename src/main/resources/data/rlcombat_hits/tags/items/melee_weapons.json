@@ -1,0 +1,16 @@
+{
+    "replace": false,
+    "values": [
+        "#minecraft:swords",
+        "#minecraft:axes",
+        "#minecraft:pickaxes",
+        "#minecraft:shovels",
+        "#minecraft:hoes",
+        "#forge:tools/swords",
+        "#forge:tools/axes",
+        "#forge:tools/pickaxes",
+        "#forge:tools/shovels",
+        "#forge:tools/hoes",
+        "minecraft:trident"
+    ]
+}
