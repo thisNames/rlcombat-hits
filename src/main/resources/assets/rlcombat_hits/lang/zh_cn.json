@@ -1,4 +1,4 @@
 {
-    "rlcombat_hits.subtitle.swordslash": "挥剑",
-    "rlcombat_hits.subtitle.criticalstrike": "暴击"
+    "rlcombat_hits.command.clear": "已清空 %s 个物品缓存",
+    "rlcombat_hits.command.list.header": "命中缓存共 %s 个物品："
 }

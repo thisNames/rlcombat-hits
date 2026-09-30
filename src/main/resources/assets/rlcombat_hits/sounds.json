@@ -1,7 +1,6 @@
 {
     "swordslash": {
         "category": "player",
-        "subtitle": "rlcombat_hits.subtitle.swordslash",
         "sounds": [
             {
                 "name": "rlcombat_hits:swordslash",
@@ -11,7 +10,6 @@
     },
     "criticalstrike": {
         "category": "player",
-        "subtitle": "rlcombat_hits.subtitle.criticalstrike",
         "sounds": [
             {
                 "name": "rlcombat_hits:criticalstrike",

@@ -1,4 +1,4 @@
 {
-    "rlcombat_hits.subtitle.swordslash": "Sword slash",
-    "rlcombat_hits.subtitle.criticalstrike": "Critical strike"
+    "rlcombat_hits.command.clear": "Cleared %s cached item(s)",
+    "rlcombat_hits.command.list.header": "Cached items (%s total):"
 }

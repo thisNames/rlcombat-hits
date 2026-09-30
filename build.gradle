@@ -76,6 +76,10 @@ minecraft {
             // Please read: https://stackoverflow.com/questions/2031163/when-to-use-the-different-log-levels
             property 'forge.logging.console.level', 'debug'
 
+            // Mixin refmap 重映射：修复 fg.deobf 重映射字节码后，第三方模组 mixin refmap 的残留条目
+            property 'mixin.env.remapRefMap', 'true'
+            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
+
             mods {
                 "${mod_id}" {
                     source sourceSets.main
@@ -117,11 +121,10 @@ repositories {
     // Put repositories for dependencies here
     // ForgeGradle automatically adds the Forge maven and Maven Central for you
 
-    // If you have mod jar dependencies in ./libs, you can declare them as a repository like so.
-    // See https://docs.gradle.org/current/userguide/declaring_repositories.html#sub:flat_dir_resolver
-    // flatDir {
-    //     dir 'libs'
-    // }
+    // 本地模组 jar 仓库：将第三方模组 jar 放入 ./libs，按坐标引用
+    flatDir {
+        dir 'libs'
+    }
 }
 
 dependencies {
@@ -131,6 +134,13 @@ dependencies {
     // If the group id is "net.minecraft" and the artifact id is one of ["client", "server", "joined"],
     // then special handling is done to allow a setup of a vanilla dependency without the use of an external repository.
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
+
+    // 本地测试用第三方模组（放入 ./libs，flatDir 按坐标解析）
+    // fg.deobf 把生产 jar 的字节码（含 mixin @Shadow 字段名）重映射回 Mojmap
+    implementation fg.deobf("architectury:architectury:9.2.14-forge")
+    implementation fg.deobf("slimeknights.mantle:Mantle:1.20.1-1.11.117")
+    implementation fg.deobf("slimeknights.tconstruct:TConstruct:1.20.1-3.11.2.166")
+    implementation fg.deobf("offhand:off-hand-combat:2.0.0-forge")
 
     // Example mod dependency with JEI - using fg.deobf() ensures the dependency is remapped to your development mappings
     // The JEI API is declared for compile time use, while the full JEI artifact is used at runtime
